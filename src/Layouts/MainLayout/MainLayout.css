@@ -14,3 +14,9 @@
 #main {
     grid-area: main;
 }
+
+@media (max-width: 576px) {
+    #app-container {
+        grid-template-rows: 4.25rem auto 4.25rem;
+    }
+}

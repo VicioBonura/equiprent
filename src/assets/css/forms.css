@@ -18,7 +18,7 @@
 }
 
 .form-group input:focus {
-    border-color: var(--accent-color);
+    border-color: var(--primary-color);
 }
 
 .form-group--buttons {
@@ -35,7 +35,7 @@
     border-radius: 0.25rem;
     outline: none;
     cursor: pointer;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: white;
     font-weight: bold;
 }
@@ -47,7 +47,7 @@
 }
 
 .form-group--buttons button:hover {
-    background-color: var(--accent-color-dark);
+    background-color: var(--primary-color-dark);
 }
 
 .form-group--buttons button:hover[type="reset"] {
