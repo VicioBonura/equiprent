@@ -1,0 +1,19 @@
+@import url('../src/assets/css/normalize.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global styles */
+@import url('../src/assets/css/variables.css');
+@import url('../src/assets/css/cards.css');
+@import url('../src/assets/css/forms.css');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}

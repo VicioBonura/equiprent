@@ -1,0 +1,38 @@
+#main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-light);
+    padding: 1rem;
+    height: 4.25rem;
+}
+
+@media (min-width: 576px) {
+    #main-nav {
+        position: relative;
+        height: auto;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+#main-nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+#main-nav a.active {
+    color: var(--primary-color);
+}
+
+#main-nav a:hover {
+    color: var(--grey-medium);
+}   

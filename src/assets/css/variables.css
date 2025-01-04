@@ -1,0 +1,16 @@
+:root {
+    --primary-color: hsl(15, 100%, 50%);
+    --primary-color-dark: hsl(15, 100%, 30%);
+    --grey-light: hsl(0, 0%, 90%);
+    --grey-medium: hsl(0, 0%, 50%);
+    --grey-dark: hsl(0, 0%, 10%);
+
+    /* Background */
+    --bg-white: hsl(0, 0%, 100%);
+    --bg-light: hsl(0, 0%, 90%);
+    --bg-dark: hsl(0, 0%, 10%);
+
+    /* Error */
+    --error-color: hsl(0, 100%, 40%);
+    --error-bg: hsl(0, 100%, 90%);
+}
