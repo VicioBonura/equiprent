@@ -1,20 +1,12 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { isLoggedIn } from '../utils/auth';
+import { useSearchParams } from 'react-router-dom';
 import LoginForm from '../components/LoginForm/LoginForm';
 
 const Login = () => {
-    // Controllo utente già loggato
-    // XXX: centralizzare usando ProtectedRoute
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (isLoggedIn()) {
-            navigate('/');
-        }
-    }, [navigate]); 
-
+    const [searchParams] = useSearchParams();
+    const isRedirect = searchParams.get('redirect') === 'true';
     return (
         <div className="center-content">
+            {isRedirect && <div className="alert alert-warning">Effettua il login per accedere alle sezioni protette</div>}
             <LoginForm />
         </div>
     );

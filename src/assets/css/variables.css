@@ -1,10 +1,15 @@
 :root {
+    /* Colors */
     --primary-color: hsl(15, 100%, 50%);
     --primary-color-dark: hsl(15, 100%, 30%);
     --grey-light: hsl(0, 0%, 90%);
     --grey-medium: hsl(0, 0%, 50%);
     --grey-dark: hsl(0, 0%, 10%);
 
+    /* Text */
+    --text-color: hsl(0, 0%, 10%);
+    --text-color-muted: hsl(0, 0%, 50%);
+    --text-color-light: hsl(0, 0%, 90%);
     /* Background */
     --bg-white: hsl(0, 0%, 100%);
     --bg-light: hsl(0, 0%, 90%);
@@ -13,4 +18,16 @@
     /* Error */
     --error-color: hsl(0, 100%, 40%);
     --error-bg: hsl(0, 100%, 90%);
+
+    /* Warning */
+    --warning-color: hsl(40, 100%, 50%);
+    --warning-bg: hsl(40, 100%, 90%);
+
+    /* Success */
+    --success-color: hsl(150, 100%, 50%);
+    --success-bg: hsl(150, 100%, 90%);
+
+    /* Info */
+    --info-color: hsl(200, 100%, 50%);
+    --info-bg: hsl(200, 100%, 90%);
 }

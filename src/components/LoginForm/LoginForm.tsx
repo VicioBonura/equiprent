@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser} from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 
@@ -7,7 +7,11 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
-
+    
+    //check if the user is redirected from a protected route
+    const [searchParams] = useSearchParams();
+    const route = searchParams.get('from') || '/';
+    
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
@@ -21,7 +25,10 @@ const LoginForm = () => {
         try {
             const response = await loginUser(credentials);
             localStorage.setItem('token', response.token);
-            navigate('/');
+
+            // Trigger an event to notify components that the user is logged in
+            window.dispatchEvent(new Event('auth-change'));
+            navigate(route);
         } catch (error) {
             setError('Credenziali non valide');
         } finally {

@@ -23,3 +23,33 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.alert {
+    position: fixed;
+    width: auto;
+    text-align: center;;
+    top: -10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: 1px solid transparent;
+    animation: show-and-hide 10s ease-in-out forwards;
+}
+
+@keyframes show-and-hide {
+    0%, 100% {
+        top: -10rem;
+    }
+    10%, 90% {
+        top: 5rem;
+    }
+}
+
+.alert-warning {
+    background-color: var(--warning-bg);
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--text-color);
+}
