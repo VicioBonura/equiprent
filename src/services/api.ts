@@ -1,4 +1,4 @@
-import { LoginResponse, RegisterAndLoginRequest } from "../types/auth";
+import { LoginResponse, RegisterResponse, RegisterAndLoginRequest } from "../types/auth";
 
 const API_BASE_URL = "https://d3660g9kardf5b.cloudfront.net/api";
 
@@ -17,4 +17,21 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
     }
 
     return {token: data.token};
+}
+
+export const registerUser = async (credentials: RegisterAndLoginRequest): Promise<RegisterResponse> => {
+    const response = await fetch(`${API_BASE_URL}/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+        throw new Error(data.message || "Errore nella registrazione");
+    }
+
+    return {message: data.message};
 }

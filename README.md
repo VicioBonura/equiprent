@@ -1,7 +1,7 @@
 # Appunti
 
 ## Scaffolding
-In `src/` creato le cartelle:
+In `src/` sono state create le cartelle:
 - components
 - hooks
 - layouts //contiene i layout condivisi per le pagine dell'app

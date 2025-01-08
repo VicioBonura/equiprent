@@ -1,3 +1,8 @@
+.card--form {
+    width: 100%;
+    max-width: 280px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
