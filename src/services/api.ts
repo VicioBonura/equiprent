@@ -1,5 +1,6 @@
 import { LoginResponse, RegisterResponse, RegisterAndLoginRequest } from "../types/auth";
 
+//const BACKUP_API_BASE_URL = "https://react-gym-server.onrender.com/api";
 const API_BASE_URL = "https://d3660g9kardf5b.cloudfront.net/api";
 
 export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<LoginResponse> => {
