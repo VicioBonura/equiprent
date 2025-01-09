@@ -28,11 +28,10 @@ const RegisterForm = () => {
         };
 
         try {
-            const response = await registerUser(credentials);
-            console.log(response);
+            await registerUser(credentials);
             navigate('/login?registered=true');
         } catch (error) {
-            setError('Errore nella registrazione');
+            setError(`Errore nella registrazione: ${error}`);
         } finally {
             setIsLoading(false);
         }

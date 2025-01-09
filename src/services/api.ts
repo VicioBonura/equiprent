@@ -1,4 +1,4 @@
-import { LoginResponse, RegisterResponse, RegisterAndLoginRequest } from "../types/auth";
+import { LoginResponse, RegisterAndLoginRequest } from "../types/auth";
 
 //const BACKUP_API_BASE_URL = "https://react-gym-server.onrender.com/api";
 const API_BASE_URL = "https://d3660g9kardf5b.cloudfront.net/api";
@@ -20,7 +20,7 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
     return {token: data.token};
 }
 
-export const registerUser = async (credentials: RegisterAndLoginRequest): Promise<RegisterResponse> => {
+export const registerUser = async (credentials: RegisterAndLoginRequest): Promise<string> => {
     const response = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: {
@@ -29,10 +29,10 @@ export const registerUser = async (credentials: RegisterAndLoginRequest): Promis
         body: JSON.stringify(credentials)
     });
 
-    const data = await response.json();
+    const data = await response.text();
     if (!response.ok) {
-        throw new Error(data.message || "Errore nella registrazione");
+        throw new Error(data || "Errore nella registrazione");
     }
 
-    return {message: data.message};
+    return data;
 }
