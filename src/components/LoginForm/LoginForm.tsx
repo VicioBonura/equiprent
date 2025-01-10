@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser} from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
+import { useAuth } from '../../hooks/useAuth';
 
 const LoginForm = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     
@@ -24,10 +26,7 @@ const LoginForm = () => {
 
         try {
             const response = await loginUser(credentials);
-            localStorage.setItem('token', response.token);
-
-            // Trigger an event to notify components that the user is logged in
-            window.dispatchEvent(new Event('auth-change'));
+            login(response.token);
             navigate(route);
         } catch (error) {
             setError('Credenziali non valide');

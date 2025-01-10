@@ -1,9 +1,10 @@
 import { useNavigate, Link } from 'react-router-dom';
-import { isLoggedIn, logout } from '../../utils/auth';
+import { useAuth } from '../../hooks/useAuth';
 import './UserBtn.css';
 
 const UserBtn = () => {
     const navigate = useNavigate();
+    const { isAuthenticated, logout } = useAuth();
     const onLogout = () => {
         logout();
         navigate('/login')
@@ -11,7 +12,7 @@ const UserBtn = () => {
 
     return (
         <div id="user-info">
-            {isLoggedIn() ? (
+            {isAuthenticated ? (
                 <Link to="#" className="btn" onClick={onLogout}>Logout</Link>
             ) : (
                 <Link to="/login" className="btn">Login</Link>
