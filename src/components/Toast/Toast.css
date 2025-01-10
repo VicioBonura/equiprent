@@ -1,28 +1,95 @@
 .toast {
     position: fixed;
-    bottom: 5rem;
-    right: -110%;
+    bottom: calc(var(--main-view-bottom) + 1rem);
+    right: 1rem;
     z-index: 1000;
-    padding: 0.5rem;
+    width: clamp(350px, auto, 500px);
     font-size: 0.8rem;
-    padding-bottom: 1rem;
-    border-radius: .5rem;
+    padding: 0.5rem 1.5rem 1rem 0.5rem;
+    border-radius: .25rem;
+    color: var(--text-color);
+    background-color: var(--bg-light);
     border: 1px solid transparent;
-    animation: show-and-hide 10s ease-in-out forwards;
+    animation: slideIn .5s ease-in-out forwards;
 }
 
-@keyframes show-and-hide {
-    0%, 100% {
-        right: -110%;
+.toast--onClose {
+    animation: slideOut .5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
     }
-    10%, 90% {
-        right: 1rem;
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
-.toast.warning {
+@keyframes slideOut {
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.toast::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left:0;
+    background: var(--text-color);
+    width: 0;
+    height: 0.25rem;
+    opacity: 0.25;
+    animation: progressBar 5s linear forwards;
+}
+
+@keyframes progressBar {
+    to {
+        width: 100%;
+    }
+}
+
+.toast__close {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.toast__close:hover {
+    opacity: 1;
+}
+
+.toast--success {
+    background-color: var(--success-bg);
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.toast--warning {
     background-color: var(--warning-bg);
     color: var(--warning-color);
     border-color: var(--warning-color);
-    color: var(--text-color);
+}
+
+.toast--error {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.toast--info {
+    background-color: var(--info-bg);
+    color: var(--info-color);
+    border-color: var(--info-color);
 }

@@ -29,3 +29,6 @@ Se l'utente non è autenticato e tenta di accedere a una rotta protetta, viene r
 L'utente viene informato con un messaggio di avviso che lo invita a effettuare il login prima di proseguire verso la rotta protetta.
 
 Se l'utente è autenticato e tenta di accedere alla pagina di login, viene rediretto alla dashboard.
+
+## Toast
+I feedback all'utente sono gestiti tramite toast, visualizzati in basso a destra dell'area di visualizzazione.

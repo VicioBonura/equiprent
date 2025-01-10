@@ -10,6 +10,7 @@
     --text-color: hsl(0, 0%, 10%);
     --text-color-muted: hsl(0, 0%, 50%);
     --text-color-light: hsl(0, 0%, 90%);
+
     /* Background */
     --bg-white: hsl(0, 0%, 100%);
     --bg-light: hsl(0, 0%, 90%);
@@ -20,14 +21,23 @@
     --error-bg: hsl(0, 100%, 90%);
 
     /* Warning */
-    --warning-color: hsl(40, 100%, 50%);
+    --warning-color: hsl(40, 100%, 40%);
     --warning-bg: hsl(40, 100%, 90%);
 
     /* Success */
-    --success-color: hsl(150, 100%, 50%);
+    --success-color: hsl(150, 100%, 30%);
     --success-bg: hsl(150, 100%, 90%);
 
     /* Info */
     --info-color: hsl(200, 100%, 50%);
     --info-bg: hsl(200, 100%, 90%);
+
+    /* Positions and sizes */
+    --main-view-bottom: 0rem;
+}
+
+@media (max-width: 576px) {
+    :root {
+        --main-view-bottom: 4.25rem;
+    }
 }
