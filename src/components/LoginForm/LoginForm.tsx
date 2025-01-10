@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser} from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
+import { showToast } from '../../utils/toast';
 
 const LoginForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
     
     //check if the user is redirected from a protected route
     const [searchParams] = useSearchParams();
@@ -30,7 +30,7 @@ const LoginForm = () => {
             window.dispatchEvent(new Event('auth-change'));
             navigate(route);
         } catch (error) {
-            setError('Credenziali non valide');
+            showToast({ message: 'Credenziali non valide', type: 'error', onClose: () => {} });
         } finally {
             setIsLoading(false);
         }
@@ -40,7 +40,6 @@ const LoginForm = () => {
             <div className="card__header"><h2>Login</h2></div>
             <div className="card__body">
                 <form onSubmit={onSubmit}>
-                {error && <p className="error">{error}</p>}
                     <div className="form-group">
                         <label htmlFor="username">User</label>
                         <input type="text" id="username" name="username" placeholder="Username" />

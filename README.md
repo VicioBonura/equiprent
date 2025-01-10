@@ -31,4 +31,6 @@ L'utente viene informato con un messaggio di avviso che lo invita a effettuare i
 Se l'utente è autenticato e tenta di accedere alla pagina di login, viene rediretto alla dashboard.
 
 ## Toast
-I feedback all'utente sono gestiti tramite toast, visualizzati in basso a destra dell'area di visualizzazione.
+I feedback all'utente sono gestiti tramite toast, visualizzati in basso a destra dell'area di visualizzazione. Il sistema di notifiche è implementato attraverso eventi custom `show-toast` che vengono intercettati a livello di `window`. Questo approccio permette a qualsiasi componente dell'applicazione di generare toast senza vincoli di gerarchia.
+
+Il componente `MainLayout` si occupa della visualizzazione dei toast, mentre la gestione degli eventi è implementata con un pattern di retry che garantisce la corretta ricezione del messaggio anche in scenari di race condition o quando il componente Toast non è ancora stato completamente inizializzato.
