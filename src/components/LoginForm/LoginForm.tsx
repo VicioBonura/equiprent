@@ -28,9 +28,16 @@ const LoginForm = () => {
 
             // Trigger an event to notify components that the user is logged in
             window.dispatchEvent(new Event('auth-change'));
+            showToast({
+                message: 'Login effettuato con successo',
+                type: 'success'
+            });
             navigate(route);
         } catch (error) {
-            showToast({ message: 'Credenziali non valide', type: 'error', onClose: () => {} });
+            showToast({
+                message: `Errore nel login: ${error}`,
+                type: 'error'
+            });
         } finally {
             setIsLoading(false);
         }

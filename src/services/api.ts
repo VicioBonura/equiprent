@@ -12,9 +12,13 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
         body: JSON.stringify(credentials)
     });
 
-    const data = await response.json();
+    const rawData = await response.text();
+    let data;
+    try { data = JSON.parse(rawData); }
+    catch (error) { data = rawData; }
+
     if (!response.ok) {
-        throw new Error(data.message || "Errore nel login");
+        throw new Error(typeof data === 'string' ? data : "Errore nel login");
     }
 
     return {token: data.token};

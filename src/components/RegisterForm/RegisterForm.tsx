@@ -42,6 +42,10 @@ const RegisterForm = () => {
 
         try {
             await registerUser(credentials);
+            showToast({ 
+                message: `Registrazione effettuata con successo`, 
+                type: 'success'
+            });
             navigate('/login?registered=true');
         } catch (error) {
             showToast({ 
