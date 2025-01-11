@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ToastProps } from './types';
+import { ToastProps } from '../../types/toast';
 import './Toast.css';
 
-const Toast = ({message, type, duration = 5000}: ToastProps) => {
+const Toast = ({message, type, duration = 5000, onClose = () => {}}: ToastProps) => {
     const [isVisible, setIsVisible] = useState(true);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -10,6 +10,7 @@ const Toast = ({message, type, duration = 5000}: ToastProps) => {
         setIsClosing(true);
         setTimeout(() => {
             setIsVisible(false);
+            onClose();
         }, 500);
     }
 

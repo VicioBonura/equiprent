@@ -2,22 +2,35 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/api";
 import { RegisterAndLoginRequest } from "../../types/auth";
+import { showToast } from "../../utils/toast";
 
 const RegisterForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
 
         const form = e.currentTarget as HTMLFormElement;
+        const username = form.username.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
 
+        if(!username.length || !password.length) {
+            showToast({ 
+                message: 'I campi sono obbligatori', 
+                type: 'error'
+            });
+            setIsLoading(false);
+            return;
+        }
+
         if (password !== confirmPassword) {
-            setError('Le password non corrispondono');
+            showToast({ 
+                message: 'Le password non corrispondono', 
+                type: 'error'
+            });
             setIsLoading(false);
             return;
         }
@@ -31,7 +44,10 @@ const RegisterForm = () => {
             await registerUser(credentials);
             navigate('/login?registered=true');
         } catch (error) {
-            setError(`Errore nella registrazione: ${error}`);
+            showToast({ 
+                message: `Errore nella registrazione: ${error}`, 
+                type: 'error'
+            });
         } finally {
             setIsLoading(false);
         }
@@ -41,7 +57,6 @@ const RegisterForm = () => {
             <div className="card__header"><h2>Registrazione</h2></div>
             <div className="card__body">
                 <form onSubmit={onSubmit}>
-                    {error && <p className="error">{error}</p>}
                     <div className="form-group">
                         <label htmlFor="username">User</label>
                         <input type="text" id="username" name="username" placeholder="Username" />

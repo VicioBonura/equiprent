@@ -1,13 +1,23 @@
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { showToast } from '../utils/toast';
 import LoginForm from '../components/LoginForm/LoginForm';
-import Toast from '../components/Toast/Toast';
 
 const Login = () => {
     const [searchParams] = useSearchParams();
     const isRedirect = searchParams.get('redirect') === 'true';
+
+    useEffect(() => {
+        if (isRedirect) {
+            showToast({ 
+                message: "Effettua il login per accedere alle sezioni protette", 
+                type: "warning"
+            });
+        }
+    }, [isRedirect]);
+
     return (
         <div className="center-content">
-            {isRedirect && <Toast message="Effettua il login per accedere alle sezioni protette" type="warning" />}
             <LoginForm />
         </div>
     );
