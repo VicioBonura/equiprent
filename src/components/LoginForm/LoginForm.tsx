@@ -6,7 +6,6 @@ import { showToast } from '../../utils/toast';
 
 const LoginForm = () => {
     const navigate = useNavigate();
-    const { login } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     
     //check if the user is redirected from a protected route
@@ -25,7 +24,10 @@ const LoginForm = () => {
 
         try {
             const response = await loginUser(credentials);
-            login(response.token);
+            localStorage.setItem('token', response.token);
+
+            // Trigger an event to notify components that the user is logged in
+            window.dispatchEvent(new Event('auth-change'));
             navigate(route);
         } catch (error) {
             showToast({ message: 'Credenziali non valide', type: 'error', onClose: () => {} });
