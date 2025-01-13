@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { AuthContextType, RegisterAndLoginRequest } from '../types/auth';
+import { AuthContextType, RegisterAndLoginRequest } from '../../types/auth';
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

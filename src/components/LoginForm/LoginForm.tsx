@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 import { showToast } from '../../utils/toast';
-import { AuthContext } from '../../contexts/authContext';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Card from "../Card/Card";
 
 const LoginForm = () => {
