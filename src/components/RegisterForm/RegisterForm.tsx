@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/api";
 import { RegisterAndLoginRequest } from "../../types/auth";
 import { showToast } from "../../utils/toast";
+import Card from "../Card/Card";
 
 const RegisterForm = () => {
     const navigate = useNavigate();
@@ -57,9 +58,9 @@ const RegisterForm = () => {
         }
     }
     return (
-        <div className="card card--form">
-            <div className="card__header"><h2>Registrazione</h2></div>
-            <div className="card__body">
+        <Card className="card--form">
+            <Card.Header><h2>Registrazione</h2></Card.Header>
+            <Card.Body>
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <label htmlFor="username">User</label>
@@ -78,11 +79,11 @@ const RegisterForm = () => {
                         <button type="submit" disabled={isLoading}>{isLoading ? 'Loading...' : 'Registrati'}</button>
                     </div>
                 </form>
-            </div>
-            <div className="card__footer">
-                <p className="card__footer-text">Hai già un account? <Link to="/login">Accedi</Link></p>
-            </div>
-        </div>
+            </Card.Body>
+            <Card.Footer>
+                <p className="card__footerText">Hai già un account? <Link to="/login">Accedi</Link></p>
+            </Card.Footer>
+        </Card>
     )
 }
 

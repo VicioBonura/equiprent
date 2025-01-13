@@ -9,11 +9,11 @@
     /* Text */
     --text-color: hsl(0, 0%, 10%);
     --text-color-muted: hsl(0, 0%, 50%);
-    --text-color-light: hsl(0, 0%, 90%);
+    --text-color-light: hsl(0, 0%, 80%);
 
     /* Background */
     --bg-white: hsl(0, 0%, 100%);
-    --bg-light: hsl(0, 0%, 90%);
+    --bg-light: hsl(0, 0%, 80%);
     --bg-dark: hsl(0, 0%, 10%);
 
     /* Error */

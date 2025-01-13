@@ -7,7 +7,7 @@
 
 .card__header {
     padding: 1rem;
-    background-color: #f0f0f0;
+    background-color: #ddd;
 }
 
 .card__header h2,
@@ -21,10 +21,11 @@
 
 .card__footer {
     padding: 1rem;
-    background-color: #f0f0f0;
+    background-color: #ddd;
 }
 
-.card__footer-text {
+.card__footerText {
     text-align: center;
     margin: 0;
+    font-size: 0.8rem;
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { loginUser} from '../../services/api';
+import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 import { showToast } from '../../utils/toast';
+import Card from "../Card/Card";
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -43,9 +44,11 @@ const LoginForm = () => {
         }
     }
     return (
-        <div className="card card--form">
-            <div className="card__header"><h2>Login</h2></div>
-            <div className="card__body">
+        <Card className="card--form">
+            <Card.Header>
+                <h2>Login</h2>
+            </Card.Header>
+            <Card.Body>
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <label htmlFor="username">User</label>
@@ -60,11 +63,11 @@ const LoginForm = () => {
                         <button type="submit" disabled={isLoading}>{isLoading ? 'Loading...' : 'Accedi'}</button>
                     </div>
                 </form>
-            </div>
-            <div className="card__footer">
-                <p className="card__footer-text">Non hai un account? <Link to="/register">Registrati</Link></p>
-            </div>
-        </div>
+            </Card.Body>
+            <Card.Footer>
+                <p className="card__footerText">Non hai un account? <Link to="/register">Registrati</Link></p>
+            </Card.Footer>
+        </Card>
     )
 }
 
