@@ -1,0 +1,30 @@
+.card {
+    border: 1px solid #000000;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card__header {
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
+
+.card__header h2,
+.card__header h3 {
+    margin: 0;
+}
+
+.card__body {
+    padding: 1rem;
+}
+
+.card__footer {
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
+
+.card__footer-text {
+    text-align: center;
+    margin: 0;
+}
