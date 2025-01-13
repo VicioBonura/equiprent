@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 import { showToast } from '../../utils/toast';
+import { AuthContext } from '../../contexts/authContext';
 import Card from "../Card/Card";
 
 const LoginForm = () => {
@@ -25,7 +26,7 @@ const LoginForm = () => {
 
         try {
             const response = await loginUser(credentials);
-            localStorage.setItem('token', response.token);
+            AuthContext.updateLogin(response.token);
 
             // Trigger an event to notify components that the user is logged in
             window.dispatchEvent(new Event('auth-change'));
