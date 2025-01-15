@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 import { showToast } from '../../utils/toast';
-import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import Card from "../Card/Card";
 
 const LoginForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const { login } = useAuth();
     
     //check if the user is redirected from a protected route
     const [searchParams] = useSearchParams();
@@ -25,11 +25,7 @@ const LoginForm = () => {
         };
 
         try {
-            const response = await loginUser(credentials);
-            AuthContext.updateLogin(response.token);
-
-            // Trigger an event to notify components that the user is logged in
-            window.dispatchEvent(new Event('auth-change'));
+            await login(credentials);
             showToast({
                 message: 'Login effettuato con successo',
                 type: 'success'

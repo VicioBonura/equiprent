@@ -7,13 +7,19 @@ export interface RegisterAndLoginRequest {
 	password: string;
 }
 
-export interface AuthContextType {
-    isAuthenticated: boolean;
-    updateLogin: (token: string) => void;
-    logout: () => void;
+export interface User {
+    username: string;
+    iat: number;
 }
 
-export interface User {
-    id: string;
-    username: string;
- }
+export interface AuthState {
+    user: User | null;
+    isAuthenticated: boolean;
+    token: string | null;
+}
+
+export interface AuthContextType extends AuthState {
+    login: (credentials: RegisterAndLoginRequest) => Promise<void>;
+    checkLogin: () => void;
+    logout: () => void;
+}

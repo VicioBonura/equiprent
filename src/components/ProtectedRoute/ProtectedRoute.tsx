@@ -1,18 +1,16 @@
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { ProtectedRouteProps } from '../../types/access';
-import { isLoggedIn } from '../../utils/auth';
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
 
 const ProtectedRoute = ({children, accessType}: ProtectedRouteProps) => {
-    const isAuth = isLoggedIn();
-    const location = useLocation();
+    const { isAuthenticated } = useAuth();
 
     switch (accessType) {
         case 'not-auth':    //Access only if not authenticated
-            return !isAuth ? <>{children}</> : <Navigate to="/dashboard" />;
+            return !isAuthenticated ? <>{children}</> : <Navigate to="/dashboard" />;
 
         case 'auth-only':   //Access only if authenticated
-            const from = encodeURIComponent(location.pathname);
-            return isAuth ? <>{children}</> : <Navigate to={`/login?redirect=true&from=${from}`} replace />;
+            return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
 
         case 'public':      //Access allowed to all
         default:

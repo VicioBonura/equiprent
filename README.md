@@ -34,3 +34,13 @@ Se l'utente è autenticato e tenta di accedere alla pagina di login, viene redir
 I feedback all'utente sono gestiti tramite toast, visualizzati in basso a destra dell'area di visualizzazione. Il sistema di notifiche è implementato attraverso eventi custom `show-toast` che vengono intercettati a livello di `window`. Questo approccio permette a qualsiasi componente dell'applicazione di generare toast senza vincoli di gerarchia.
 
 Il componente `MainLayout` si occupa della visualizzazione dei toast, mentre la gestione degli eventi è implementata con un pattern di retry che garantisce la corretta ricezione del messaggio anche in scenari di race condition o quando il componente Toast non è ancora stato completamente inizializzato.
+
+## Context
+Per la gestione degli stati globali si è scelto di utilizzare il context di React, non mediante l'uso di un unico contesto che gascista tutti gli stati, ma creando contesti specifici. In particolare `AuthContext` per la gestione dell'autenticazione e `ToastContext` per la gestione dei toast.
+Un ulteriore context, `AppContext` ha la responsabilità di contenere i contesti specifici fornendo il contesto generico dell'applicazione.
+
+### Separazione delle responsabilità
+La gestione dei contesti prevede la realizzazione di due file differenti per separare le responsabilità:
+- `Context.ts` crea il contesto e definisce i tipi di dato che il contesto gestisce; fornisce il punto d'accesso al consteso (custom hook) e le logiche di controllo dell'esistenza del contesto stesso. Definisce un contratto, dichiarando cosa sarà disponibile ma non implementando la logica.
+- `Provider.tsx` contiene la logica del context, mantenendo lo stato attuale, gestendo l'inizializzazione dello stato e il suo aggiornamento. Contiene la logica di business del contesto.
+

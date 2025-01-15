@@ -1,26 +1,15 @@
-import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import UserBtn from "../UserBtn/UserBtn";
-import { isLoggedIn } from "../../utils/auth";
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import './NavBar.css';
 
 const NavBar = () => {
-    const [isAuth, setIsAuth] = useState(isLoggedIn());
+    const { isAuthenticated } = useAuth();
     
-    useEffect(() => {
-        const checkAuth = () => setIsAuth(isLoggedIn());
-        checkAuth();
-        window.addEventListener('auth-change', checkAuth);
-        
-        return () => {
-            window.removeEventListener('auth-change', checkAuth);
-        };
-    }, [])
-
     return (
         <nav id="main-nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
-            {isAuth && <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>}
+            {isAuthenticated && <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>}
             <UserBtn />
         </nav>
     );

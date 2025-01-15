@@ -1,18 +1,22 @@
-import { useNavigate, Link } from 'react-router-dom';
-import { isLoggedIn, logout } from '../../utils/auth';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
+import { showToast } from '../../utils/toast';
 import './UserBtn.css';
 
 const UserBtn = () => {
-    const navigate = useNavigate();
+    const { logout, isAuthenticated } = useAuth();
     const onLogout = () => {
         logout();
-        navigate('/login')
+        showToast({
+            message: 'Logout effettuato con successo',
+            type: 'success'
+        });
     }
 
     return (
         <div id="user-info">
-            {isLoggedIn() ? (
-                <Link to="#" className="btn" onClick={onLogout}>Logout</Link>
+            {isAuthenticated ? (
+                <Link to="/" className="btn" onClick={onLogout}>Logout</Link>
             ) : (
                 <Link to="/login" className="btn">Login</Link>
             )}
