@@ -3,7 +3,7 @@ import { ToastProps } from '../../types/toast';
 import './Toast.css';
 
 const Toast = ({message, type, duration = 5000, onClose = () => {}}: ToastProps) => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
     const startClose = () => {
@@ -17,7 +17,12 @@ const Toast = ({message, type, duration = 5000, onClose = () => {}}: ToastProps)
     useEffect(() => {
         const timer = setTimeout(startClose, duration);
         return () => clearTimeout(timer);
-    }, [duration]);
+    }, [duration, message, type]);
+
+    useEffect(() => {
+        setIsVisible(true);
+        setIsClosing(false);
+    }, [message, type]);
 
     return isVisible ? (
         <div className={`toast toast--${type} ${isClosing ? 'toast--onClose' : ''}`}>

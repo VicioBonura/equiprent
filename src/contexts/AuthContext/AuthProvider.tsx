@@ -1,7 +1,7 @@
 import { useState, PropsWithChildren } from 'react';
 import AuthContext from './AuthContext';
 import { AuthState, User } from '../../types/auth';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 

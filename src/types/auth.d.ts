@@ -18,7 +18,7 @@ export interface AuthState {
     token: string | null;
 }
 
-export interface AuthContextType extends AuthState {
+interface AuthContextType extends AuthState {
     login: (credentials: RegisterAndLoginRequest) => Promise<void>;
     checkLogin: () => void;
     logout: () => void;

@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/api";
 import { RegisterAndLoginRequest } from "../../types/auth";
-import { showToast } from "../../utils/toast";
+import { useToast } from "../../contexts/ToastContext/ToastContext";
 import Card from "../Card/Card";
 
 const RegisterForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast();
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();

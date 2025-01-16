@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import { ToastProps } from '../../types/toast';
-import { showToast } from '../../utils/toast';
-import Toast from './Toast';
+import { useToast } from '../../contexts/ToastContext/ToastContext';
 
 const ToastTester = () => {
-    const [activeToast, setActiveToast] = useState<ToastProps | null>(null);
+    const { showToast } = useToast();
 
     return (
         <div style={{ padding: '1rem', margin: '1rem', backgroundColor: 'var(--bg-light)' }}>
@@ -23,14 +20,6 @@ const ToastTester = () => {
                     Info
                 </button>
             </div>
-
-            {activeToast && (
-                <Toast
-                    {...activeToast}
-                    duration={50000}
-                    onClose={() => setActiveToast(null)}
-                />
-            )}
         </div>
     );
 };

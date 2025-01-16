@@ -1,7 +1,14 @@
 import { createContext, useContext } from 'react';
 import { AuthContextType } from '../../types/auth';
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+    user: null,
+    isAuthenticated: false,
+    token: null,
+    login: () => Promise.resolve(),
+    checkLogin: () => {},
+    logout: () => {}
+});
 
 export const useAuth = () => {
     const context = useContext(AuthContext);

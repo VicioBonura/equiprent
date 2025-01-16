@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { RegisterAndLoginRequest } from '../../types/auth';
-import { showToast } from '../../utils/toast';
 import { useAuth } from '../../contexts/AuthContext/AuthContext';
+import { useToast } from '../../contexts/ToastContext/ToastContext';
 import Card from "../Card/Card";
 
 const LoginForm = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const { login } = useAuth();
-    
+    const { showToast } = useToast();
+
     //check if the user is redirected from a protected route
     const [searchParams] = useSearchParams();
     const route = searchParams.get('from') || '/';

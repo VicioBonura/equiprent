@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { showToast } from '../utils/toast';
+import { useToast } from '../contexts/ToastContext/ToastContext';
 import LoginForm from '../components/LoginForm/LoginForm';
 
 const Login = () => {
     const [searchParams] = useSearchParams();
     const isRedirect = searchParams.get('redirect') === 'true';
+    const { showToast } = useToast();
 
     useEffect(() => {
         if (isRedirect) {

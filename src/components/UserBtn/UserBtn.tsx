@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext/AuthContext';
-import { showToast } from '../../utils/toast';
+import { useToast } from '../../contexts/ToastContext/ToastContext';
 import './UserBtn.css';
 
 const UserBtn = () => {
     const { logout, isAuthenticated } = useAuth();
+    const { showToast } = useToast();
+    
     const onLogout = () => {
         logout();
         showToast({
