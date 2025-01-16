@@ -5,3 +5,5 @@
 - [ ] Decodifica il token JWT per ottenere le informazioni dell'utente
 - [ ] Crea un componente per la gestione delle notifiche multiple
 - [x] Crea un componente Card per unificare il layout delle card (attrezzature, form)
+- [ ] Crea un component per il calcolo del prezzo delle attrezzature per minuto
+- [ ] Crea cta per funzionalità premium (mock)

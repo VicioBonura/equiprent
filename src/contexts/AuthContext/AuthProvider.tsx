@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, PropsWithChildren } from 'react';
 import AuthContext from './AuthContext';
 import { AuthState, User } from '../../types/auth';
 import {jwtDecode} from 'jwt-decode';
 import { loginUser } from '../../services/api';
 import { RegisterAndLoginRequest } from '../../types/auth';
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider = ({ children }: PropsWithChildren) => {
     const [state, setState] = useState<AuthState>(() => {
         const token = localStorage.getItem('token');
         if(token) {
@@ -48,12 +48,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <AuthContext.Provider value={{
-            ...state,
-            login,
-            logout,
-            checkLogin,
-        }}>
+        <AuthContext.Provider value={{...state, login, logout, checkLogin}}>
             {children}
         </AuthContext.Provider>
     );

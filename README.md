@@ -21,14 +21,17 @@ Il componente RouterProvider è il principale componente per la gestione delle r
 #### Layout
 Il componente `MainLayout` è il responsabile del layout delle pagine dell'app e utilizza il componente `Outlet` per renderizzare i componenti figli, come indicato nell'oggetto `router`.
 
-#### ProtectedRoute
-Il componente `ProtectedRoute` ha la responsabilità di gestire le rotte in base allo stato di autenticazione dell'utente.
-
 ##### Comportamento e feedback
 Se l'utente non è autenticato e tenta di accedere a una rotta protetta, viene rediretto alla pagina di login con il parametro `redirect=true` nell'url, in modo che il login venga effettuato e l'utente venga reindirizzato alla rotta originale, tracciata con il parametro `from` nell'url.
 L'utente viene informato con un messaggio di avviso che lo invita a effettuare il login prima di proseguire verso la rotta protetta.
 
 Se l'utente è autenticato e tenta di accedere alla pagina di login, viene rediretto alla dashboard.
+
+## Auth Guard
+La gestione delle rotte protette è implementata attraverso il componente `ProtectedRoute`, che gestisce le rotte in base al valore del parametro `accessType` definito nell'oggetto `router`. La navigazione sarà consentita o ridirezionata in base al rispetto o meno delle condizioni di accesso:
+- `not-auth`: accesso consentito solo se l'utente non è autenticato
+- `auth-only`: accesso consentito solo se l'utente è autenticato
+- `public`: accesso consentito a tutti
 
 ## Toast
 I feedback all'utente sono gestiti tramite toast, visualizzati in basso a destra dell'area di visualizzazione. Il sistema di notifiche è implementato attraverso eventi custom `show-toast` che vengono intercettati a livello di `window`. Questo approccio permette a qualsiasi componente dell'applicazione di generare toast senza vincoli di gerarchia.

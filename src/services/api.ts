@@ -15,7 +15,7 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
     const rawData = await response.text();
     let data;
     try { data = JSON.parse(rawData); }
-    catch (error) { data = rawData; }
+    catch { data = rawData; }
 
     if (!response.ok) {
         throw new Error(typeof data === 'string' ? data : "Errore nel login");
