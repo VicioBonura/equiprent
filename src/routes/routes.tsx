@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
 import Home from "../pages/Home";
+import Equipments from "../pages/Equipments";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
@@ -16,6 +17,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute accessType="public">
                         <Home />
+                    </ProtectedRoute>
+                )
+            },
+            { 
+                path: "/equipments", 
+                element: (
+                    <ProtectedRoute accessType="public">
+                        <Equipments />
                     </ProtectedRoute>
                 )
             },

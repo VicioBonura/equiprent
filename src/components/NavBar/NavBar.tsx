@@ -9,6 +9,7 @@ const NavBar = () => {
     return (
         <nav id="main-nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
+            <NavLink to="/equipments" className="nav-link">Equipments</NavLink>
             {isAuthenticated && <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>}
             <UserBtn />
         </nav>
