@@ -40,7 +40,7 @@ Il componente `MainLayout` si occupa della visualizzazione dei toast, mentre la 
 
 ## Context
 Per la gestione degli stati globali si è scelto di utilizzare il context di React, non mediante l'uso di un unico contesto che gascista tutti gli stati, ma creando contesti specifici. In particolare `AuthContext` per la gestione dell'autenticazione e `ToastContext` per la gestione dei toast.
-Un ulteriore context, `AppContext` ha la responsabilità di contenere i contesti specifici fornendo il contesto generico dell'applicazione.
+Un wrapper, `AppContextWrapper`, ha la responsabilità di contenere i contesti specifici fornendo l'ambiente generico dell'applicazione.
 
 ### Separazione delle responsabilità
 La gestione dei contesti prevede la realizzazione di due file differenti per separare le responsabilità:

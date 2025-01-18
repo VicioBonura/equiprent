@@ -42,13 +42,12 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         });
     }
 
-    const checkLogin = () => {
-        const token = localStorage.getItem('token');
-        return token ? true : false;
+    const getToken = () => {
+        return localStorage.getItem('token') || null;
     }
 
     return (
-        <AuthContext.Provider value={{...state, login, logout, checkLogin}}>
+        <AuthContext.Provider value={{...state, login, logout, getToken}}>
             {children}
         </AuthContext.Provider>
     );

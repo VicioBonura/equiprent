@@ -1,0 +1,20 @@
+.bookingWidget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--loading::after {
+        content: 'Caricamento...';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.bookingWidget__actions {
+    margin-left: auto;
+}

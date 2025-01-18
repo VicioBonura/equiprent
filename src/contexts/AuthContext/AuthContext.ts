@@ -6,7 +6,7 @@ const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     token: null,
     login: () => Promise.resolve(),
-    checkLogin: () => {},
+    getToken: () => null,
     logout: () => {}
 });
 

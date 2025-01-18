@@ -1,8 +1,9 @@
 import { LoginResponse, RegisterAndLoginRequest } from "../types/auth";
-import { Equipment } from "../types/equipment"
+import { Equipment, EquipmentBooking, EquipmentBookingRequest } from "../types/equipment"
 
-//const BACKUP_API_BASE_URL = "https://react-gym-server.onrender.com/api";
+// API base URL
 const API_BASE_URL = "https://d3660g9kardf5b.cloudfront.net/api";
+//const BACKUP_API_BASE_URL = "https://react-gym-server.onrender.com/api";
 
 // Authentication
 
@@ -63,4 +64,39 @@ export const registerUser = async (credentials: RegisterAndLoginRequest): Promis
 export const getEquipments = async (): Promise<Equipment[]> => {
     const response = await fetch(`${API_BASE_URL}/equipment`);
     return response.json();
+}
+
+/**
+ * Book an equipment
+ * @param equipmentId - The id of the equipment to book
+ * @param duration - The duration of the booking
+ * @param token - The token of the user
+ * @returns The booking
+ */
+export const bookEquipment = async (equipmentId: number, duration: number, token: string | null): Promise<EquipmentBooking> => {
+    const headers: Record<string, string> = {
+        "content-type": "application/json"
+    };
+
+    if(token)
+        headers["Authorization"] = `Bearer ${token}`;
+    
+    const response = await fetch(`${API_BASE_URL}/equipment/${equipmentId}/book`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ duration }) 
+    });
+
+    const rawData = await response.text();
+    let data;
+    try { data = JSON.parse(rawData); }
+    catch { data = rawData; }
+
+    if (!response.ok) {
+        throw new Error(typeof data === 'string' ? data : "Errore nella prenotazione");
+    }
+
+    console.log(data);
+
+    return data;
 }
