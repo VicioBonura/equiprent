@@ -17,6 +17,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.page-container {
+    width: 100dvw;
+}
+
 .page-container > h2 {
     margin-left: 2rem;
 }
