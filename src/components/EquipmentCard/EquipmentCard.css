@@ -1,0 +1,29 @@
+.equipments-list .card {
+
+    display: grid;
+    grid-template-rows: 4rem auto 3rem;
+
+    .card__header h3 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    .card__header h3 div {
+        height: 2rem;
+    }
+
+    .card__header h3 div svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        background-color: #f0f0f0;
+
+    }
+}

@@ -30,3 +30,13 @@ export const formatPrice = (price: number, currency: string = "EUR") => {
 
     return `${price.toFixed(2).replace(".", ",")} ${symbols[currency]}`;
 }
+
+/**
+ * Format the image to the correct format
+ * @param _image - The image to format
+ * @returns The formatted image
+ */
+export const formatImage = (_image: string) => {
+    //XXX DEV: replace with a placeholder image
+    return 'https://placehold.co/600x400';
+}

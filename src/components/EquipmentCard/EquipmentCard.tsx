@@ -1,0 +1,25 @@
+import { Equipment } from "../../types/equipment";
+import { formatSVG, formatPrice, formatImage } from "../../utils/formatStrings";
+import Card from "../Card/Card";
+import BookingWidget from "../BookingWidget/BookingWidget";
+import "./EquipmentCard.css";
+
+const EquipmentCard = ({ equipment }: { equipment: Equipment }) => {
+    return (
+        <Card key={equipment.id}>
+            <Card.Header>
+                <h3><div dangerouslySetInnerHTML={{ __html: formatSVG(equipment.icon) }} /> {equipment.name}</h3>
+            </Card.Header>
+            <Card.Body>
+                <img src={formatImage(equipment.image)} alt={equipment.name} />
+                <p>{equipment.claim}</p>
+                <div>{formatPrice(equipment.pricePerMinute, 'EUR')}/min</div>
+            </Card.Body>
+            <Card.Footer>
+                <BookingWidget equipment={equipment} />
+            </Card.Footer>
+        </Card>
+    );
+}
+
+export default EquipmentCard;
