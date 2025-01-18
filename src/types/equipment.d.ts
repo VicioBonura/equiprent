@@ -16,5 +16,7 @@ export interface EquipmentBooking {
 }
 
 export interface EquipmentBookingRequest {
-	duration: number;
+    equipmentId: number;
+    duration: number;
+    token: string | null;
 }

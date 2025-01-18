@@ -73,7 +73,7 @@ export const getEquipments = async (): Promise<Equipment[]> => {
  * @param token - The token of the user
  * @returns The booking
  */
-export const bookEquipment = async (equipmentId: number, duration: number, token: string | null): Promise<EquipmentBooking> => {
+export const bookEquipment = async ({equipmentId, duration, token}: EquipmentBookingRequest): Promise<EquipmentBooking> => {
     const headers: Record<string, string> = {
         "content-type": "application/json"
     };
