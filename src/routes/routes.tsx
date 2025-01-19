@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import Bookings from "../pages/Bookings";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute accessType="public">
                         <Equipments />
+                    </ProtectedRoute>
+                )
+            },
+            { 
+                path: "/bookings", 
+                element: (
+                    <ProtectedRoute accessType="public">
+                        <Bookings />
                     </ProtectedRoute>
                 )
             },

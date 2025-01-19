@@ -67,6 +67,15 @@ export const getEquipments = async (): Promise<Equipment[]> => {
 }
 
 /**
+ * Get all bookings
+ * @returns The bookings
+ */
+export const getBookings = async (): Promise<EquipmentBooking[]> => {
+    const response = await fetch(`${API_BASE_URL}/equipment-bookings`);
+    return response.json();
+}
+
+/**
  * Book an equipment
  * @param equipmentId - The id of the equipment to book
  * @param duration - The duration of the booking

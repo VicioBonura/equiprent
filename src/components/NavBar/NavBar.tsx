@@ -10,6 +10,7 @@ const NavBar = () => {
         <nav id="main-nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/equipments" className="nav-link">Equipments</NavLink>
+            <NavLink to="/bookings" className="nav-link">Bookings</NavLink>
             {isAuthenticated && <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>}
             <UserBtn />
         </nav>

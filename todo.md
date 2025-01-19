@@ -10,6 +10,7 @@
 - [x] Crea un widget per la prenotazione delle attrezzature
 
 ## Domande
-- [ ] Come gestire il ridimensionamento delle immagini?
-- [ ] Come gestire il ridimensionamento delle icone SVG?
+- [ ] Come gestire il ridimensionamento delle immagini? => (ho usato UseOptimizedImage)
+- [ ] Come gestire il ridimensionamento delle icone SVG? => (ho usato formatSVG)
 - [ ] Come renderizzare il codice delle icone SVG senza usare dangerouslySetInnerHTML?
+- [ ] Come ottimizzare la doppia chiamata API in Bookings, mancando getEquipmentById?

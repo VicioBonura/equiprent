@@ -94,7 +94,7 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
     }
 
     return (
-        <div className={`bookingWidget ${isLoading && 'bookingWidget--loading'}`}>
+        <div className={`bookingWidget ${isLoading ? 'bookingWidget--loading' : ''}`}>
             <div className="bookingWidget__duration">
                 <button 
                     onClick={() => updateDuration(false, true)} 

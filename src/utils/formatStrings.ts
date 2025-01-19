@@ -32,11 +32,27 @@ export const formatPrice = (price: number, currency: string = "EUR") => {
 }
 
 /**
- * Format the image to the correct format
- * @param _image - The image to format
- * @returns The formatted image
+ * Format the date and time
+ * @param dateTime - The date string in ISO 8601 format
+ * @returns The formatted date and time
  */
-export const formatImage = (_image: string) => {
-    //XXX DEV: replace with a placeholder image
-    return 'https://placehold.co/600x400';
+export const formatDateTime = (dateTime: string) => {
+    const date = new Date(dateTime);
+    const options: Intl.DateTimeFormatOptions = {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    return date.toLocaleString('it-IT', options).replace(',', '');
+}
+
+/**
+ * Return a placeholder image served by placehold.co
+ * @param w - The width of the image
+ * @param h - The height of the image
+ * @returns The placeholder image
+ */
+export const placeholderImage = (w: number, h: number) => {
+    return `https://placehold.co/${w}x${h}`;
 }

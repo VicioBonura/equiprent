@@ -10,9 +10,12 @@ export interface Equipment {
 export interface EquipmentBooking {
 	id: number;
 	equipment_id: number;
-	user_id: string;
 	start_date: string;
 	end_date: string;
+}
+
+export interface EquipmentBookingProps extends EquipmentBooking {
+    equipment: Equipment;
 }
 
 export interface EquipmentBookingRequest {

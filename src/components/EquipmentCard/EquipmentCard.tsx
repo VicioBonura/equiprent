@@ -1,5 +1,5 @@
 import { Equipment } from "../../types/equipment";
-import { formatSVG, formatPrice, formatImage } from "../../utils/formatStrings";
+import { formatSVG, formatPrice, placeholderImage } from "../../utils/formatStrings";
 import Card from "../Card/Card";
 import BookingWidget from "../BookingWidget/BookingWidget";
 import UseOptimizedImage from "../../hooks/useOptimizedImage";
@@ -21,7 +21,7 @@ const EquipmentCard = ({ equipment }: { equipment: Equipment }) => {
             </Card.Header>
             <Card.Body className={isLoading ? 'img-loading' : ''}>
                 <img 
-                    src={optimizedImage ?? 'https://placehold.co/600x400'} 
+                    src={optimizedImage ?? placeholderImage(600, 400)} 
                     alt={equipment.name} 
                 />
                 <p>{equipment.claim}</p>

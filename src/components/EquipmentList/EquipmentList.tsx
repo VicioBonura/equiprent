@@ -1,7 +1,6 @@
 import { Equipment } from "../../types/equipment";
-
-import "./EquipmentList.css";
 import EquipmentCard from "../EquipmentCard/EquipmentCard";
+import "./EquipmentList.css";
 
 const EquipmentList = ({ equipments }: { equipments: Equipment[] }) => {
 

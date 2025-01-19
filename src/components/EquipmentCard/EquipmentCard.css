@@ -1,7 +1,7 @@
 .equipments-list .card {
 
     display: grid;
-    grid-template-rows: 4rem auto 3rem;
+    grid-template-rows: 4rem auto auto;
 
     .card__header h3 {
         display: flex;
