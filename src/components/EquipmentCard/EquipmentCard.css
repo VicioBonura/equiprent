@@ -18,12 +18,43 @@
         width: 2rem;
         height: 2rem;
     }
+}
+
+.card__body {
+    position: relative;
 
     img {
-        width: 100%;
+        width: calc(100% + 2rem);
         aspect-ratio: 3/2;
         object-fit: cover;
         background-color: #f0f0f0;
+        transition: filter 0.3s ease-in-out;
+        filter: blur(0px);
+        opacity: 1;
+        margin: -1rem -1rem 0 -1rem;
+    }
+    &.img-loading img {
+        filter: blur(3px);
+        opacity: 0.25;
+    }
+    &.img-loading::after{
+        content:'';
+        position: absolute;
+        left: 50%;
+        top: 33%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 5px solid var(--primary-color);
+        border-radius: 50%;
+        border-top-color: transparent;
 
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }

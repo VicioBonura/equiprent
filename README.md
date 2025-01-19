@@ -47,3 +47,8 @@ La gestione dei contesti prevede la realizzazione di due file differenti per sep
 - `Context.ts` crea il contesto e definisce i tipi di dato che il contesto gestisce; fornisce il punto d'accesso al consteso (custom hook) e le logiche di controllo dell'esistenza del contesto stesso. Definisce un contratto, dichiarando cosa sarà disponibile ma non implementando la logica.
 - `Provider.tsx` contiene la logica del context, mantenendo lo stato attuale, gestendo l'inizializzazione dello stato e il suo aggiornamento. Contiene la logica di business del contesto.
 
+## Gestione immagini
+Per la gestione delle immagini, non avendo controllo della risorsa lato server, si è realizzato il custom hook `useOptimizedImage`, che si occupa di creare copie di dimensioni ridotte delle immagini originali, al fine di evitare problemi in fase di scrolling dovuti al repaint di risorse eccessivamente pesanti: Il custom hook utilizza canvas per creare una nuova immagine partendo dall'originale con dimensioni, compressione e formato specificati.
+
+### Caching
+L'hook di elaborazione delle immagini si occupa anche di memorizzare in localStorage la versione ottimizata identificata dalla chiave src_width_quality_format, e ne verifica l'esistenza prima di procedere con una nuova realizzazione, se già presente.

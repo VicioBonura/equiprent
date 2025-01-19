@@ -117,7 +117,7 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
             <div className="bookingWidget__actions">
                 <button 
                     onClick={onBooking}
-                >Prenota a soli {calculatePrice()}!</button>
+                >Prenota: {calculatePrice()}!</button>
             </div>
         </div>
     );
