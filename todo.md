@@ -6,7 +6,8 @@
 - [ ] Crea un componente per la gestione delle notifiche multiple
 - [x] Crea un componente Card per unificare il layout delle card (attrezzature, form)
 - [x] Crea una utility per il calcolo del prezzo delle attrezzature per minuto
-- [ ] Crea cta per funzionalità premium (mock)
+- [ ] Crea cta per funzionalità premium
+- [ ] Premium: pulsante quick booking e maxDuration 20min
 - [x] Crea un widget per la prenotazione delle attrezzature
 
 ## Domande
