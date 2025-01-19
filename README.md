@@ -1,4 +1,15 @@
-# Appunti
+# Documentazione: Appunti, note e scelte progettuali
+
+Di seguito sono descritti i principali aspetti di progettazione e sviluppo dell'applicazione, con note e spiegazioni sulle soluzioni adottate. L'ordine di presentazione segue la sequenza temporale in cui ogni argomento è stato affrontato durante l'evoluzione del progetto.
+
+## Indice
+
+- Scaffolding
+- React Router DOM
+- Auth Guard
+- Toast
+- Context
+- Gestione immagini
 
 ## Scaffolding
 In `src/` sono state create le cartelle:
@@ -52,3 +63,10 @@ Per la gestione delle immagini, non avendo controllo della risorsa lato server, 
 
 ### Caching
 L'hook di elaborazione delle immagini si occupa anche di memorizzare in localStorage la versione ottimizata identificata dalla chiave src_width_quality_format, e ne verifica l'esistenza prima di procedere con una nuova realizzazione, se già presente.
+
+## Funzioni Premium
+Per eseguire le funzionalità di autenticazione, si è scelto di inserire due features riservate agli utenti registrati: 
+
+- **Quick duration selector**: rende disponibili i pulsanti `+5` e `-5` per velocizzare la selezione della durata della prenotazione
+- **Max duration**: permette di impostare un massimo di 20 minuti per la durata della prenotazione, aumentando i 10 minuti di default
+

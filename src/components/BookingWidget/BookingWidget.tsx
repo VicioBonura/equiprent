@@ -12,16 +12,25 @@ interface BookingWidgetProps {
 
 enum DurationParams {
     MIN = 0,
-    MAX = 20,
+    MAX = 10,
+    MAX_PREMIUM = 20,
     DEFAULT_STEP = 1,
     QUICK_STEP = 5
 }
 
 const BookingWidget = ({ equipment }: BookingWidgetProps) => {
-    const { getToken } = useAuth();
+    const { getToken, isAuthenticated } = useAuth();
     const { showToast } = useToast();
     const [duration, setDuration] = useState<number>(0);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    /**
+     * Get the maximum duration based on the user's authentication status
+     * @returns The maximum duration
+     */
+    const getMaxDuration = () => { 
+        return isAuthenticated ? DurationParams.MAX_PREMIUM : DurationParams.MAX; 
+    }
 
     /**
      * Check if the duration is in the allowed range
@@ -29,7 +38,7 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
      * @returns True if the duration is in the allowed range, false otherwise
      */
     const isInRange = (duration: number) => {
-        return duration >= DurationParams.MIN && duration <= DurationParams.MAX;
+        return duration >= DurationParams.MIN && duration <= getMaxDuration();
     }
 
     /**
@@ -39,7 +48,7 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
      */
     const isIncrementDisabled = (quick: boolean = false) => {
         const step = quick ? DurationParams.QUICK_STEP : DurationParams.DEFAULT_STEP;
-        return duration + step > DurationParams.MAX;
+        return duration + step > getMaxDuration();
     }
 
     /**
@@ -96,10 +105,12 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
     return (
         <div className={`bookingWidget ${isLoading ? 'bookingWidget--loading' : ''}`}>
             <div className="bookingWidget__duration">
-                <button 
-                    onClick={() => updateDuration(false, true)} 
-                    disabled={isDecrementDisabled(true)}
-                >-5</button>
+                {isAuthenticated && (
+                    <button 
+                        onClick={() => updateDuration(false, true)} 
+                        disabled={isDecrementDisabled(true)}
+                    >-5</button>
+                )}
                 <button 
                     onClick={() => updateDuration(false, false)} 
                     disabled={isDecrementDisabled(false)}
@@ -109,10 +120,12 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
                     onClick={() => updateDuration(true, false)} 
                     disabled={isIncrementDisabled(false)}
                 >+1</button>
-                <button 
-                    onClick={() => updateDuration(true, true)} 
-                    disabled={isIncrementDisabled(true)}
-                >+5</button>
+                {isAuthenticated && (
+                    <button 
+                        onClick={() => updateDuration(true, true)} 
+                        disabled={isIncrementDisabled(true)}
+                    >+5</button>
+                )}
             </div>
             <div className="bookingWidget__actions">
                 <button 
