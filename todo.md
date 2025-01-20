@@ -7,11 +7,13 @@
 - [x] Crea un componente Card per unificare il layout delle card (attrezzature, form)
 - [x] Crea una utility per il calcolo del prezzo delle attrezzature per minuto
 - [ ] Crea cta per funzionalità premium
-- [ ] Premium: pulsante quick booking e maxDuration 20min
+- [x] Premium: pulsante quick booking e maxDuration 20min
 - [x] Crea un widget per la prenotazione delle attrezzature
+- [ ] Crea useEquipments per la logica di presentazione delle attrezzature
+- [ ] Restyling grafico completo
 
 ## Domande
-- [ ] Come gestire il ridimensionamento delle immagini? => (ho usato UseOptimizedImage)
-- [ ] Come gestire il ridimensionamento delle icone SVG? => (ho usato formatSVG)
-- [ ] Come renderizzare il codice delle icone SVG senza usare dangerouslySetInnerHTML?
+- [x] Come gestire il ridimensionamento delle immagini? => (ho usato useOptimizedImage)
+- [x] Come gestire il ridimensionamento delle icone SVG? => (ho usato formatSVG)
+- [x] Come renderizzare il codice delle icone SVG senza usare dangerouslySetInnerHTML? -> approfondire custom hook per le icone
 - [ ] Come ottimizzare la doppia chiamata API in Bookings, mancando getEquipmentById?

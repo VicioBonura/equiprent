@@ -15,6 +15,12 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-base-primary);
+    color: var(--text-color);
+}
+
+a, a:visited {
+    color: var(--text-color);
 }
 
 .page-container {

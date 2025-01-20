@@ -57,7 +57,7 @@ const UseOptimizedImage = ({ src, targetWidth, quality = 0.8, format = 'image/we
         }
 
         optimizeImage();
-    }, [src, targetWidth, quality, format]);
+    }, [src, targetWidth, quality, format, cacheKey]);
 
     return { optimizedImage, isLoading, error };
 }

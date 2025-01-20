@@ -1,13 +1,16 @@
 .card {
-    border: 1px solid #000000;
     border-radius: 0.5rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     overflow: hidden;
+    --border-bg: linear-gradient(to right, var(--bg-base-secondary), var(--bg-base-tertiary), var(--bg-base-secondary));
 }
 
 .card__header {
     padding: 1rem;
-    background-color: #ddd;
+    background-color: var(--bg-base-secondary);
+    border-bottom: 1px solid;
+    border-image: var(--border-bg);
+    border-image-slice: 1;
 }
 
 .card__header h2,
@@ -17,11 +20,15 @@
 
 .card__body {
     padding: 1rem;
+    background-color: var(--bg-base-secondary);
 }
 
 .card__footer {
     padding: 1rem;
-    background-color: #ddd;
+    background-color: var(--bg-base-secondary);
+    border-top: 1px solid;
+    border-image: var(--border-bg);
+    border-image-slice: 1;
 }
 
 .card__footerText {

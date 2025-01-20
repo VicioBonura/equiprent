@@ -20,7 +20,7 @@ const Bookings = () => {
                 setEquipments(equipments);
             } catch (error) {
                 showToast({
-                    message: "Errore nel recupero dei dati",
+                    message: `Errore nel recupero dei dati: ${error}`,
                     type: "error"
                 });
             } finally {
