@@ -21,16 +21,24 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
         body: JSON.stringify(credentials)
     });
 
-    const rawData = await response.text();
-    let data;
-    try { data = JSON.parse(rawData); }
-    catch { data = rawData; }
-
-    if (!response.ok) {
-        throw new Error(typeof data === 'string' ? data : "Errore nel login");
+    if(!response.ok) {
+        const error = await response.text();
+        throw new Error(typeof error === 'string' ? error : "Errore nel login");
     }
 
-    return {token: data.token};
+    const data = await response.json();
+    return data;
+
+    // const rawData = await response.text();
+    // let data;
+    // try { data = JSON.parse(rawData); }
+    // catch { data = rawData; }
+
+    // if (!response.ok) {
+    //     throw new Error(typeof data === 'string' ? data : "Errore nel login");
+    // }
+
+    // return {token: data.token};
 }
 
 /**

@@ -11,11 +11,11 @@
 
     /* Text */
     --text-color: #dae1eb;
-    --text-color-muted: hsl(from var(--text-color) h 0.5);
-    --text-color-negative: var(--bg-base-primary);
+    --text-color-muted: hsl(from var(--text-color) h s l / 0.5);
+    --text-color-inverted: var(--bg-base-primary);
 
     /* Shadows */
-    --shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    --shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.15), 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
 
     /* Error */
     --error-color: hsl(0, 100%, 40%);

@@ -18,9 +18,9 @@ const UserBtn = () => {
     return (
         <div id="user-info">
             {isAuthenticated ? (
-                <Link to="/" className="btn" onClick={onLogout}>Logout</Link>
+                <Link to="/" className="button" onClick={onLogout}>Logout</Link>
             ) : (
-                <Link to="/login" className="btn">Login</Link>
+                <Link to="/login" className="button">Login</Link>
             )}
         </div>
     );

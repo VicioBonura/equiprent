@@ -2,37 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--bg-light);
-    padding: 1rem;
+    background-color: var(--bg-base-primary);
     height: 4.25rem;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, transparent, var(--text-color-muted), transparent) 1;
 }
 
-@media (min-width: 576px) {
-    #main-nav {
-        position: relative;
-        height: auto;
-        padding: 0;
-        background-color: transparent;
-    }
-}
-
-#main-nav a {
+#main-nav a.nav-link {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     text-decoration: none;
     color: inherit;
     transition: background-color 0.3s ease;
 }
 
-#main-nav a.active {
+#main-nav a.nav-link.active {
     color: var(--primary-color);
-}
-
-#main-nav a:hover {
-    color: var(--grey-medium);
-}   
+}  

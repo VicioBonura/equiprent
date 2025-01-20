@@ -1,0 +1,22 @@
+button, .button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-color-inverted);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.button.disabled, button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button[type="reset"], .button--secondary {
+    background-color: var(--bg-base-secondary);
+    color: var(--text-color);
+    box-shadow: inset 0 0 0 1px var(--text-color-muted);
+}

@@ -1,30 +1,55 @@
 .card--form {
     width: 100%;
     max-width: 280px;
+
+    .card__header h2 {
+        text-align: center;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     margin-bottom: 1rem;
 }
 
-.form-group label {
-    font-weight: bold;
-    font-size: 0.8rem;
-    padding: 0.25rem;
-}
-
 .form-group input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border: 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    background-color: var(--bg-base-primary);
     border-radius: 0.25rem;
     outline: none;
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px hsl(from var(--primary-color) h s l / 0.25);
 }
+
+.form-group input::placeholder {
+    color: transparent;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: 0.75rem;
+    left: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.25rem;
+}
+
 
 .form-group--buttons {
     display: flex;
@@ -32,47 +57,4 @@
     gap: 0.5rem;   
     justify-content: flex-end;
     margin-bottom: 0;
-}
-
-.form-group--buttons button {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    outline: none;
-    cursor: pointer;
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-}
-
-.form-group--buttons button[type="reset"] {
-    background-color: var(--grey-light);
-    color: var(--grey-dark);
-    border: 1px solid var(--grey-medium);
-}
-
-.form-group--buttons button:hover {
-    background-color: var(--primary-color-dark);
-}
-
-.form-group--buttons button:hover[type="reset"] {
-    background-color: var(--grey-medium);
-}
-
-.login_info {
-    font-size: 1rem;
-    text-align: center;
-}
-
-
-.login_info a {
-    font-weight: bold;
-}
-
-.error {
-    margin: -1rem -1rem 1rem -1rem;
-    padding: 0.5rem;
-    text-align: center;
-    background-color: var(--error-bg);
-    color: var(--error-color);
 }

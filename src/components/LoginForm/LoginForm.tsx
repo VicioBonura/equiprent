@@ -49,12 +49,12 @@ const LoginForm = () => {
             <Card.Body>
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
-                        <label htmlFor="username">User</label>
                         <input type="text" id="username" name="username" placeholder="Username" />
+                        <label htmlFor="username">Username</label>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password">Pass</label>
                         <input type="password" id="password" name="password" placeholder="Password" />
+                        <label htmlFor="password">Password</label>
                     </div>
                     <div className="form-group form-group--buttons">
                         <button type="reset">Reset</button>

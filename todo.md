@@ -17,3 +17,12 @@
 - [x] Come gestire il ridimensionamento delle icone SVG? => (ho usato formatSVG)
 - [x] Come renderizzare il codice delle icone SVG senza usare dangerouslySetInnerHTML? -> approfondire custom hook per le icone
 - [ ] Come ottimizzare la doppia chiamata API in Bookings, mancando getEquipmentById?
+
+## Deploy su Netlify
+- [ ] Aggiungere in `/public` il file `_redirects` per indicare al webserver di reindirizzare tutte le richieste a https:
+```_redirects
+/*  /index.html 200
+```
+- [ ] Aggiungere `robots.txt`
+- [ ] Aggiungere `manifest.json`
+     
