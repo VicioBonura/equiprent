@@ -27,7 +27,6 @@ const Equipments = () => {
     return (
         <div className="page-container">
             <div className="equipments-list">
-                <h3>In primo piano</h3>
                 <div className="equipments-list__featured">
                     <EquipmentCard equipment={featured} />
                 </div>

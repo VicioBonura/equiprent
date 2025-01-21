@@ -1,6 +1,6 @@
 .toast {
     position: fixed;
-    bottom: calc(var(--main-view-bottom) + 1rem);
+    bottom: calc(var(--nav-heights) + 1rem);
     right: 1rem;
     z-index: 1000;
     width: clamp(350px, auto, 500px);

@@ -2,15 +2,13 @@
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     overflow: hidden;
-    --border-bg: linear-gradient(to right, var(--bg-base-secondary), var(--bg-base-tertiary), var(--bg-base-secondary));
 }
 
 .card__header {
     padding: 1rem;
     background-color: var(--bg-base-secondary);
     border-bottom: 1px solid;
-    border-image: var(--border-bg);
-    border-image-slice: 1;
+    border-image: var(--border-image);
 }
 
 .card__header h2,
@@ -27,8 +25,7 @@
     padding: 1rem;
     background-color: var(--bg-base-secondary);
     border-top: 1px solid;
-    border-image: var(--border-bg);
-    border-image-slice: 1;
+    border-image: var(--border-image);
 }
 
 .card__footerText {

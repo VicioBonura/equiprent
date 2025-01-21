@@ -1,3 +1,7 @@
+#app-container:has(.card--form) {
+    align-content: center;
+}
+
 .card--form {
     width: 100%;
     max-width: 280px;
@@ -23,6 +27,7 @@
     background-color: var(--bg-base-primary);
     border-radius: 0.25rem;
     outline: none;
+    box-shadow: var(--inset-shadow);
 }
 
 .form-group input:focus {

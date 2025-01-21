@@ -1,22 +1,4 @@
 #app-container {
-    display: grid;
-    grid-template-areas:
-        "header"
-        "main";
-    grid-template-rows: 4.25rem auto;
     min-height: 100vh;
-}
-
-#header {
-    grid-area: header;
-}
-
-#main {
-    grid-area: main;
-}
-
-@media (max-width: 576px) {
-    #app-container {
-        grid-template-rows: 4.25rem auto 4.25rem;
-    }
+    padding-block: 4.25rem;
 }
