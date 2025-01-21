@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import { useToast } from '../../contexts/ToastContext/ToastContext';
+import { Login } from '../Icons/Login'
+import { Logout } from '../Icons/Logout'
 import './UserBtn.css';
 
 const UserBtn = () => {
@@ -18,9 +20,15 @@ const UserBtn = () => {
     return (
         <div id="user-info">
             {isAuthenticated ? (
-                <Link to="/" className="button" onClick={onLogout}>Logout</Link>
+                <Link to="/" onClick={onLogout}>
+                    <Logout />
+                    <label>Logout</label>
+                </Link>
             ) : (
-                <Link to="/login" className="button">Login</Link>
+                <Link to="/login">
+                    <Login />
+                    <label>Login</label>
+                </Link>
             )}
         </div>
     );
