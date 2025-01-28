@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Equipment } from "../types/equipment";
 import { getEquipments } from "../services/api";
-import EquipmentCard from "../components/EquipmentCard/EquipmentCard";
+import EquipmentFeatured from "../components/EquipmentFeatured/EquipmentFeatured";
 import EquipmentList from "../components/EquipmentList/EquipmentList"; 
 import "../assets/css/equipments.css";
 
@@ -27,9 +27,7 @@ const Equipments = () => {
     return (
         <div className="page-container">
             <div className="equipments-list">
-                <div className="equipments-list__featured">
-                    <EquipmentCard equipment={featured} />
-                </div>
+                <EquipmentFeatured equipment={featured} />
                 <h3>Offerte speciali</h3>
                 <div className="equipments-list__special-offers">
                     <EquipmentList equipments={specialOffers} />
