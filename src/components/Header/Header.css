@@ -33,6 +33,17 @@ header {
     letter-spacing: -0.1rem;
     margin-right: auto;
     margin-block: 0;
+
+    &::before {
+        content:'';
+        position: relative;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        top: 0.3rem;
+        margin-right: 0.5rem;
+        background: url(/favicon.svg) no-repeat center center / contain;
+    }
 }
 
 #mainTitle .accent {

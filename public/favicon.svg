@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .primary { fill: #ff7c6f; }
+    .secondary { fill: #49cc98; }
+  </style>
+  <g transform="translate(16,16) rotate(45) translate(-16,-16)">
+    <rect x="2" y="13" width="4" height="6" rx="1" class="primary"/>
+    <rect x="26" y="13" width="4" height="6" rx="1" class="primary"/>
+    <rect x="6" y="14" width="6" height="4" rx="1" class="secondary"/>
+    <rect x="20" y="14" width="6" height="4" rx="1" class="secondary"/>
+    <rect x="12" y="12" width="8" height="8" rx="2" class="primary"/>
+  </g>
+</svg>
