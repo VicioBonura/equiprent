@@ -4,10 +4,7 @@
  * @returns The formatted SVG string
  */
 export const formatSVG = (svg: string) => {
-    return svg.replace(
-        /height="(\d+)" width="(\d+)"/,
-        (_match, height, width) => `viewBox='0 0 ${width} ${height}'`
-    );
+    return svg.replace(/width:.*; height.*; /, '');
 }
 
 /**
