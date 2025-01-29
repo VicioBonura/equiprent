@@ -10,6 +10,7 @@ Di seguito sono descritti i principali aspetti di progettazione e sviluppo dell'
 - Toast
 - Context
 - Gestione immagini
+- Funzioni premium
 
 ## Scaffolding
 In `src/` sono state create le cartelle:

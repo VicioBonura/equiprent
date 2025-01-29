@@ -106,30 +106,31 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
         <div className={`bookingWidget ${isLoading ? 'bookingWidget--loading' : ''}`}>
             <div className="bookingWidget__duration">
                 {isAuthenticated && (
-                    <button 
+                    <button className="button--secondary button--left"
                         onClick={() => updateDuration(false, true)} 
                         disabled={isDecrementDisabled(true)}
                     >-5</button>
                 )}
-                <button 
+                <button className="button--secondary button--left"
                     onClick={() => updateDuration(false, false)} 
                     disabled={isDecrementDisabled(false)}
                 >-1</button>
                 <span>{duration + (duration != 1 ? ' minuti' : ' minuto')}</span>
-                <button 
+                <button className="button--secondary button--right"
                     onClick={() => updateDuration(true, false)} 
                     disabled={isIncrementDisabled(false)}
                 >+1</button>
                 {isAuthenticated && (
-                    <button 
+                    <button className="button--secondary button--right"
                         onClick={() => updateDuration(true, true)} 
                         disabled={isIncrementDisabled(true)}
                     >+5</button>
                 )}
             </div>
             <div className="bookingWidget__actions">
-                <button 
+                <button
                     onClick={onBooking}
+                    disabled={duration == 0}
                 >Prenota: {calculatePrice()}!</button>
             </div>
         </div>

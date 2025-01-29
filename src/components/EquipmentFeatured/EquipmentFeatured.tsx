@@ -13,13 +13,18 @@ const EquipmentFeatured = ({ equipment }: { equipment: Equipment }) => {
         format: 'image/webp'
     });
 
+    const [price, currency] = formatPrice(equipment.pricePerMinute, 'EUR');
+
     return (
         <div className={`equipments-list__featured ${isLoading ? 'img-loading' : ''}`}>
             <img src={optimizedImage ?? placeholderImage(600, 400)} alt={equipment.name} />
             <div className="equipments-list__featured-info">
+                <p className="claim">{equipment.claim}</p>
                 <h3><div dangerouslySetInnerHTML={{ __html: formatSVG(equipment.icon) }} /> {equipment.name}</h3>
-                <p>{equipment.claim}</p>
-                <div className="equipments-list__featured-info-price">{formatPrice(equipment.pricePerMinute, 'EUR')}/min</div>
+                <div className="equipments-list__featured-info-price">
+                    <span className="price">{price}</span>
+                    <span className="currency">{currency}/min</span>
+                </div>
             </div>
             <BookingWidget equipment={equipment} />
         </div>

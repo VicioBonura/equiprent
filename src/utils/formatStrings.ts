@@ -18,14 +18,7 @@ export const formatPrice = (price: number, currency: string = "EUR") => {
         "EUR": "€",
         "USD": "$"
     }
-
-    /** Alternative format for small prices
-     * if (price < 1) {
-     *     return `${Math.round(price * 100)} cent${symbols[currency]}`;
-     * }
-     */
-
-    return `${price.toFixed(2).replace(".", ",")} ${symbols[currency]}`;
+    return [price.toFixed(2).replace(".", ","), symbols[currency]];
 }
 
 /**
