@@ -58,7 +58,7 @@ const Home = () => {
             </section>
 
             <section className="premium">
-                <h2>Diventa Premium</h2>
+                <h2>Passa a Premium</h2>
                 <div className="premium__features">
                     <div className="premium__feature">
                         <h3>Quick Booking</h3>
