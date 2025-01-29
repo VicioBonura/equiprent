@@ -3,26 +3,32 @@ import { EquipmentBookingProps } from "../types/equipment";
 import { getEquipmentsBooked } from "../services/api";
 import { useAuth } from "../contexts/AuthContext/AuthContext";
 import BookingList from "../components/BookingCard/BookingList/BookingList";
-import "../assets/css/dashboard.css";
 import { Link } from "react-router-dom";
+import "../assets/css/dashboard.css";
 
 const Dashboard = () => {
     const { getToken } = useAuth();
     const [equipmentsBooked, setEquipmensBooked] = useState<EquipmentBookingProps[]>([]);
+    const [activeBookings, setActiveBookings] = useState<number>(0);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         getEquipmentsBooked(getToken()).then((equipmentsBooked) => {
             setEquipmensBooked(equipmentsBooked);
+            setActiveBookings(equipmentsBooked.length);
         });
         setIsLoading(false);
     }, []);
+
+    const handleExpire = () => {
+        setActiveBookings(prev => prev - 1);
+    }
 
     if (isLoading) {
         return <div className="loading">Caricamento...</div>;
     }
 
-    if(!isLoading && equipmentsBooked.length === 0) {
+    if(!isLoading && equipmentsBooked.length === 0 || activeBookings === 0) {
         return <div className="loading-finished">
             Nessuna prenotazione trovata
             <Link to="/equipments" className="button button--secondary button--big">Inizia subito</Link>
@@ -32,7 +38,7 @@ const Dashboard = () => {
     return (
         <div className="page-container dashboard">
             <h2>Le tue prenotazioni</h2>
-            <BookingList equipmentsBooked={equipmentsBooked} userBookings={true} />
+            <BookingList equipmentsBooked={equipmentsBooked} userBookings={true} onExpire={handleExpire} />
         </div>
     );
 }

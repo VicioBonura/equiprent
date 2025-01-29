@@ -3,15 +3,19 @@ import { formatSVG } from "../../../utils/formatStrings";
 import BookingCard from "../BookingCard";
 import "./BookingList.css";
 
-const BookingList = ({equipmentsBooked, userBookings}: {
-    equipmentsBooked: EquipmentBookingProps[], userBookings: boolean
-    }) => {
+interface userBookingsProps {
+    equipmentsBooked: EquipmentBookingProps[];
+    userBookings: boolean;
+    onExpire?: () => void;
+}
+
+const BookingList = ({equipmentsBooked, userBookings, onExpire}: userBookingsProps) => {
     
     //show only user bookings
     if(userBookings) {
         return (
             equipmentsBooked.map((booking: EquipmentBookingProps) => (
-                <BookingCard key={booking.id} booking={booking} />
+                <BookingCard key={booking.id} booking={booking} onExpire={onExpire} />
             ))
         );
     }
