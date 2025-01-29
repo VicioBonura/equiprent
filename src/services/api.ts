@@ -126,6 +126,14 @@ export const bookEquipment = async ({equipmentId, duration, token}: EquipmentBoo
         throw new Error(error || "Errore nella prenotazione");
     }
 
-    const data = await response.json();
+    const rawData = await response.text();
+    let data;
+    try { data = JSON.parse(rawData); }
+    catch { data = rawData; }
+
+    if (!response.ok) {
+        throw new Error(typeof data === 'string' ? data : "Errore nella prenotazione");
+    }
+
     return data;
 }

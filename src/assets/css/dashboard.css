@@ -1,0 +1,12 @@
+.loading-finished {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: calc(100vh - calc(var(--nav-height) * 2));
+}
+
+.loading-finished a {
+    color: var(--text-color-inverted);
+}

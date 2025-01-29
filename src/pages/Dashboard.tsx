@@ -4,6 +4,7 @@ import { getEquipmentsBooked } from "../services/api";
 import { useAuth } from "../contexts/AuthContext/AuthContext";
 import BookingList from "../components/BookingCard/BookingList/BookingList";
 import "../assets/css/dashboard.css";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
     const { getToken } = useAuth();
@@ -22,7 +23,10 @@ const Dashboard = () => {
     }
 
     if(!isLoading && equipmentsBooked.length === 0) {
-        return <div className="loading-finished">Nessuna prenotazione trovata</div>;
+        return <div className="loading-finished">
+            Nessuna prenotazione trovata
+            <Link to="/equipments" className="button button--secondary button--big">Inizia subito</Link>
+        </div>;
     }
 
     return (
