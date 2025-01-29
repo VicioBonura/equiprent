@@ -29,8 +29,6 @@ export const formatPrice = (price: number, currency: string = "EUR") => {
 export const formatDateTime = (dateTime: string) => {
     const date = new Date(dateTime);
     const options: Intl.DateTimeFormatOptions = {
-        day: '2-digit',
-        month: 'long',
         hour: '2-digit',
         minute: '2-digit'
     };

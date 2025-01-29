@@ -26,8 +26,8 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="page-container">
-            <h2>Attrezzature prenotate</h2>
+        <div className="page-container dashboard">
+            <h2>Le tue prenotazioni</h2>
             <BookingList equipmentsBooked={equipmentsBooked} userBookings={true} />
         </div>
     );

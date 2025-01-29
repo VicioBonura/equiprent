@@ -20,12 +20,13 @@ const BookingCard = ({ booking }: { booking: EquipmentBookingProps }) => {
                     alt={booking.equipment.name} 
                 />
                 <div className="booking-info">
+                    <div className="booking-info__icon" dangerouslySetInnerHTML={{ __html: formatSVG(booking.equipment.icon) }} />
                     <div className="booking-info__name">
-                        <div dangerouslySetInnerHTML={{ __html: formatSVG(booking.equipment.icon) }} /> {booking.equipment.name}
+                         {booking.equipment.name}
                     </div>
                     <div className="booking-info__duration">
-                        <p>DA: {formatDateTime(booking.start_date)}</p>
-                        <p>A: {formatDateTime(booking.end_date)}</p>
+                        <p><span>dalle</span>: <span className="booking-info__duration-date">{formatDateTime(booking.start_date)}</span></p>
+                        <p><span>alle</span>: <span className="booking-info__duration-date">{formatDateTime(booking.end_date)}</span></p>
                     </div>
                 </div>
             </Card.Body>

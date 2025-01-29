@@ -1,0 +1,66 @@
+.dashboard {
+
+    .card {
+        margin: 1rem;
+        aspect-ratio: 3/2;
+    }
+
+    .card__body {
+        position: relative;
+        height: 100%;
+    }
+
+    .card__body::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(to top right, rgba(0,0,0,0.85) 33%, rgba(0,0,0,0.2));
+        z-index: 2;
+    }
+
+    .card img {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    .booking-info {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .booking-info__icon {
+        height: 3rem;
+        width: 3rem;
+        margin-bottom: auto;
+    }
+
+    .booking-info__name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    
+    .booking-info__duration {
+        font-size: 1rem;
+    }
+
+    .booking-info__duration p {
+        margin: 0;
+    }
+
+    .booking-info__duration span {
+        display: inline-block;
+        min-width: 5ch;
+        text-align: right;
+    }
+
+    .booking-info__duration-date {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
