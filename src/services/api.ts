@@ -23,22 +23,11 @@ export const loginUser = async (credentials: RegisterAndLoginRequest): Promise<L
 
     if(!response.ok) {
         const error = await response.text();
-        throw new Error(typeof error === 'string' ? error : "Errore nel login");
+        throw new Error(error || "Errore nel login");
     }
 
     const data = await response.json();
     return data;
-
-    // const rawData = await response.text();
-    // let data;
-    // try { data = JSON.parse(rawData); }
-    // catch { data = rawData; }
-
-    // if (!response.ok) {
-    //     throw new Error(typeof data === 'string' ? data : "Errore nel login");
-    // }
-
-    // return {token: data.token};
 }
 
 /**
@@ -133,8 +122,8 @@ export const bookEquipment = async ({equipmentId, duration, token}: EquipmentBoo
     });
 
     if (!response.ok) {
-        const data = await response.text();
-        throw new Error(data || "Errore nella prenotazione");
+        const error = await response.text();
+        throw new Error(error || "Errore nella prenotazione");
     }
 
     const data = await response.json();

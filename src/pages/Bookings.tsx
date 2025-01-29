@@ -26,7 +26,7 @@ const Bookings = () => {
     return (
         <div className="page-container">
             <h2>Attrezzature prenotate</h2>
-            <BookingList equipmentsBooked={equipmentsBooked} />
+            <BookingList equipmentsBooked={equipmentsBooked} userBookings={false} />
         </div>
     );
 }
