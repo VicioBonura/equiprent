@@ -10,6 +10,11 @@ button, .button {
     text-decoration: none;
 }
 
+.button--big {
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+}
+
 .button.disabled, button[disabled] {
     opacity: 0.5;
     cursor: not-allowed;
@@ -18,7 +23,13 @@ button, .button {
     border-color: var(--text-color-muted);
 }
 
-button[type="reset"], .button--secondary {
+button[type="reset"] {
+    background-color: var(--bg-base-secondary);
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.button--secondary {
     background-color: var(--secondary-color);
     color: var(--text-color-inverted);
     border-color: var(--text-color-muted);
