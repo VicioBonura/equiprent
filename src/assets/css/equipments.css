@@ -4,6 +4,13 @@
     gap: 1rem;
 }
 
+.equipments-list > h3 {
+    margin: 0;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 .equipments-list__special-offers,
 .equipments-list__rest {
     display: flex;
