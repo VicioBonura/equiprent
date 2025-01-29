@@ -67,3 +67,10 @@ a, a:visited {
     border-color: var(--warning-color);
     color: var(--text-color);
 }
+
+.loading,
+.loading-finished {
+    text-align: center;
+    margin-top: 2rem;
+}
+

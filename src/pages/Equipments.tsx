@@ -18,7 +18,7 @@ const Equipments = () => {
     }, []);
 
     if (equipments.length === 0) {
-        return <div>Loading...</div>;
+        return <div className="loading">Caricamento...</div>;
     }
 
     const featured = equipments[0];

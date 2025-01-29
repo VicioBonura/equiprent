@@ -1,5 +1,5 @@
 import { LoginResponse, RegisterAndLoginRequest } from "../types/auth";
-import { Equipment, EquipmentBooking, EquipmentBookingRequest } from "../types/equipment"
+import { Equipment, EquipmentBooking, EquipmentBookingProps, EquipmentBookingRequest } from "../types/equipment"
 
 // API base URL
 const API_BASE_URL = "https://d3660g9kardf5b.cloudfront.net/api";
@@ -76,11 +76,39 @@ export const getEquipments = async (): Promise<Equipment[]> => {
 
 /**
  * Get all bookings
+ * @params token - The token of the user
  * @returns The bookings
  */
-export const getBookings = async (): Promise<EquipmentBooking[]> => {
-    const response = await fetch(`${API_BASE_URL}/equipment-bookings`);
+export const getBookings = async (token: string | null = null): Promise<EquipmentBooking[]> => {
+    const headers: Record<string, string> = {
+        "content-type": "application/json"
+    };
+
+    if(token)
+        headers["Authorization"] = `Bearer ${token}`;
+    
+    const response = await fetch(`${API_BASE_URL}/equipment-bookings`, {
+        headers
+    });
     return response.json();
+}
+
+/**
+ * Get equipments booked - if token is provided, get only the bookings of the user
+ * @params token - The token of the user
+ * @returns The equipments booked
+ */
+export const getEquipmentsBooked = async (token: string | null = null): Promise<EquipmentBookingProps[]> => {
+    const bookings = await getBookings(token);
+    const equipments = await getEquipments();
+
+    const equipmentsBooked = bookings.map((booking: EquipmentBooking) => {
+        const equipment = equipments.find((equipment: Equipment) => equipment.id === booking.equipment_id);
+        if(!equipment)
+            return null;
+        return { ...booking, equipment: equipment as Equipment };
+    }).filter((booking): booking is EquipmentBookingProps => booking !== null); //TSLint non accetta .filter(Boolean)
+    return equipmentsBooked;
 }
 
 /**
@@ -104,16 +132,11 @@ export const bookEquipment = async ({equipmentId, duration, token}: EquipmentBoo
         body: JSON.stringify({ duration }) 
     });
 
-    const rawData = await response.text();
-    let data;
-    try { data = JSON.parse(rawData); }
-    catch { data = rawData; }
-
     if (!response.ok) {
-        throw new Error(typeof data === 'string' ? data : "Errore nella prenotazione");
+        const data = await response.text();
+        throw new Error(data || "Errore nella prenotazione");
     }
 
-    console.log(data);
-
+    const data = await response.json();
     return data;
 }

@@ -10,6 +10,7 @@ export interface Equipment {
 export interface EquipmentBooking {
 	id: number;
 	equipment_id: number;
+    token: string | null;
 	start_date: string;
 	end_date: string;
 }
