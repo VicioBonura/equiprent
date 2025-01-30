@@ -91,6 +91,7 @@
         justify-content: center;
         gap: 0.25rem;
         transform: rotate(10deg);
+        box-shadow: 0 0 30px #000;
 
         .price {
             font-size: 1.2rem;

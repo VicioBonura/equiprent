@@ -1,0 +1,30 @@
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - var(--nav-height) * 2);
+    z-index: 999;
+    background-color: var(--bg-base-primary);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid hsl(from var(--secondary-color) h s l / 0.25);
+    border-radius: 50%;
+    border-top: 5px solid var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loader-container.fade-out {
+    opacity: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

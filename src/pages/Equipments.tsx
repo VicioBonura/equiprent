@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Equipment } from "../types/equipment";
 import { getEquipments } from "../services/api";
 import EquipmentFeatured from "../components/EquipmentFeatured/EquipmentFeatured";
-import EquipmentList from "../components/EquipmentList/EquipmentList"; 
+import EquipmentList from "../components/EquipmentList/EquipmentList";
+import Loader from "../components/Loader/Loader";
 import "../assets/css/equipments.css";
 
 const Equipments = () => {
     const [equipments, setEquipments] = useState<Equipment[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         getEquipments().then((equipments) => {
@@ -14,11 +16,19 @@ const Equipments = () => {
             //shuffle
             const shuffled = equipments.sort(() => Math.random() - 0.5);
             setEquipments(shuffled);
+        }).finally(() => {
+            setTimeout(() => { //XXX: solo per scopo dimostrativo
+                setIsLoading(false);
+            }, 500);
         });
     }, []);
 
-    if (equipments.length === 0) {
-        return <div className="loading">Caricamento...</div>;
+    if (isLoading) {
+        return <Loader />;
+    }
+
+    if(!isLoading && equipments.length === 0) {
+        return <div className="loading-finished">Nessuna attrezzatura trovata</div>;
     }
 
     const featured = equipments[0];

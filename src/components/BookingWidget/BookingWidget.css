@@ -4,6 +4,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     gap: 1rem;
+    position: relative;
 
     span {
         padding: 0.5rem 1rem;
@@ -14,12 +15,17 @@
 }
 
 .bookingWidget--loading::after {
-    content: 'Caricamento...';
+    content: ' ...Prenotazione in corso... ';
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0.5);
+    text-decoration-thickness: 2rem;
+    text-underline-offset: -1.25rem;
+    text-decoration-skip-ink: none;
 }

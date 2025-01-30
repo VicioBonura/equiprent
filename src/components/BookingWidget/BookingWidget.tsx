@@ -91,6 +91,7 @@ const BookingWidget = ({ equipment }: BookingWidgetProps) => {
         const token = getToken();
         try {
             await bookEquipment({equipmentId: equipment.id, duration, token});
+            setDuration(0);
             showToast({
                 message: 'Prenotazione effettuata con successo',
                 type: 'success'
