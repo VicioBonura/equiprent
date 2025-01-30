@@ -20,6 +20,21 @@
     gap: 1rem;
     padding-inline: 1rem;
     height: 4rem;
+    position: relative;
+}
+
+.booking-count-list li a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border: 4px solid var(--text-color);
+    transform: translateY(-50%) rotate(-45deg);
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
 }
 
 .booking-count-list li span.count {

@@ -1,4 +1,4 @@
-.page-container {
+.page-container.not-found {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,11 +6,11 @@
     height: calc(100vh - 2 * var(--nav-height));
 }
 
-.page-container h1 {
+.page-container.not-found h1 {
     font-size: 2rem;
     margin-bottom: 5rem;
 }
 
-.page-container a {
+.page-container.not-found a {
     color: var(--text-color-inverted);
 }
