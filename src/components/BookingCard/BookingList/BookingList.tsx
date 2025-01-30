@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Equipment, EquipmentBookingProps } from "../../../types/equipment";
 import { formatSVG } from "../../../utils/formatStrings";
 import BookingCard from "../BookingCard";
@@ -38,8 +39,10 @@ const BookingList = ({equipmentsBooked, userBookings, onExpire}: userBookingsPro
         .sort((a, b) => b[1].count - a[1].count)
         .map(([equipmentId, booking]) => (
             <li key={equipmentId}>
-                <span className="count">{booking.count}</span> 
-                <div dangerouslySetInnerHTML={{ __html: formatSVG(booking.equipment.icon) }} /> {booking.equipment.name}
+                <Link to={`/featured/${booking.equipment.id}`}>
+                    <span className="count">{booking.count}</span> 
+                    <div dangerouslySetInnerHTML={{ __html: formatSVG(booking.equipment.icon) }} /> {booking.equipment.name}
+                </Link>
             </li>
         ));
             

@@ -64,6 +64,19 @@ export const getEquipments = async (): Promise<Equipment[]> => {
 }
 
 /**
+ * Get equipment detail
+ * @param id - The id of the equipment
+ * @returns The equipment detail
+ */
+export const getEquipmentDetail = async (id: number): Promise<Equipment> => {
+    const equipments = await getEquipments();
+    const equipment = equipments.find((equipment: Equipment) => equipment.id === id);
+    if(!equipment)
+        throw new Error("Attrezzatura non trovata");
+    return equipment;
+}
+
+/**
  * Get all bookings
  * @params token - The token of the user
  * @returns The bookings

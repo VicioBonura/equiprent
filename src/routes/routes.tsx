@@ -7,6 +7,8 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import Bookings from "../pages/Bookings";
+import Featured from "../pages/Featured";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
                 )
             },
             { 
+                path: "/featured/:id", 
+                element: (
+                    <ProtectedRoute accessType="public">
+                        <Featured />
+                    </ProtectedRoute>
+                )
+            },
+            { 
                 path: "/login", 
                 element: (
                     <ProtectedRoute accessType="not-auth">
@@ -60,6 +70,10 @@ const router = createBrowserRouter([
                         <Dashboard />
                     </ProtectedRoute>
                 )
+            },
+            {
+                path: "*",
+                element: <NotFound />
             }
         ],
     },
