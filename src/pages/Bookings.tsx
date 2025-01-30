@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { EquipmentBookingProps } from "../types/equipment";
 import { getEquipmentsBooked } from "../services/api";
 import BookingList from "../components/BookingCard/BookingList/BookingList";
+import Loader from "../components/Loader/Loader";
 import "../assets/css/bookings.css";
 
 const Bookings = () => {
@@ -11,12 +12,13 @@ const Bookings = () => {
     useEffect(() => {
         getEquipmentsBooked().then((equipmentsBooked) => {
             setEquipmensBooked(equipmentsBooked);
+        }).finally(() => { 
+            setIsLoading(false);
         });
-        setIsLoading(false);
     }, []);
 
     if (isLoading) {
-        return <div className="loading">Caricamento...</div>;
+        return <Loader />;
     }
 
     if(!isLoading && equipmentsBooked.length === 0) {
