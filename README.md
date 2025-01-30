@@ -11,6 +11,7 @@ Di seguito sono descritti i principali aspetti di progettazione e sviluppo dell'
 - Toast
 - Gestione immagini
 - Funzioni premium
+- Ultime funzionalità aggiunte
 
 ## Struttura del progetto
 ```
