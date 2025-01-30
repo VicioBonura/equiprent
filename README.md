@@ -27,8 +27,10 @@ src/
 │   ├── EquipmentList/
 │   ├── Header/
 │   ├── Icons/
+│   ├── Loader/
 │   ├── LoginForm/
 │   ├── NavBar/
+│   ├── NotFound/
 │   ├── ProtectedRoute/
 │   ├── RegisterForm/
 │   ├── Toast/
@@ -45,6 +47,7 @@ src/
 │   ├── Bookings.tsx
 │   ├── Dashboard.tsx
 │   ├── Equipments.tsx
+│   ├── Featured.tsx
 │   ├── Home.tsx
 │   ├── Login.tsx
 │   └── Register.tsx
@@ -103,3 +106,9 @@ Per eseguire le funzionalità di autenticazione, si è scelto di inserire due fe
 - **Quick duration selector**: rende disponibili i pulsanti `+5` e `-5` per velocizzare la selezione della durata della prenotazione
 - **Max duration**: permette di impostare un massimo di 20 minuti per la durata della prenotazione, aumentando i 10 minuti di default
 
+## Ultime funzionalità aggiunte
+- **Loader**: componente per la visualizzazione di un loader durante il caricamento delle pagine
+- **Equipments linkabili in Bookings**: la lista delle attrezzature prenotate è cliccabile e porta alla pagina della singola attrezzatura
+- **Featured**: pagina per la visualizzazione della singola attrezzatura, con la possibilità di prenotarla
+- **NotFound**: pagina per la visualizzazione di una pagina non trovata, con un link per tornare alla home
+- **Correzione stile**: miglioramento dello stile delle pagine
